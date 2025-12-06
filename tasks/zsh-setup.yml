@@ -1,0 +1,14 @@
+- name: Install zsh
+  become: true
+  pacman:
+    name: zsh
+  tags:
+    - install
+    - zsh
+
+- name: Change default shell to zsh
+  become: true
+  shell: chsh -s "$(which zsh)" "{{ lookup('env', 'USER') }}"
+  tags:
+    - install
+    - zsh

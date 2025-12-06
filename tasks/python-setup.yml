@@ -1,0 +1,7 @@
+- name: Install uv
+  pacman: 
+    name: uv
+  become: true
+  tags:
+    - install
+    - python

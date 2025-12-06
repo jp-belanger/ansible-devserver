@@ -1,0 +1,16 @@
+- name: Setup dev tools
+  become: true
+  pacman: 
+    name:
+      - tmux
+      - tldr
+      - ripgrep
+      - fd
+      - git
+      - bat
+      - btop
+      - npm
+      - claude-code
+  tags:
+    - install
+    - tools

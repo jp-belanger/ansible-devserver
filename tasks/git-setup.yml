@@ -1,0 +1,44 @@
+- name: Git personal setup email
+  git_config:
+    name: user.email
+    scope: global
+    value: "8102483+jp-belanger@users.noreply.github.com"
+  tags:
+    - install
+    - git
+
+- name: Git personal setup name
+  git_config:
+    name: user.name
+    scope: global
+    value: "jp-belanger"
+  tags:
+    - install
+    - git
+
+- name: Set default branch to master
+  git_config:
+    name: init.defaultBranch
+    scope: global
+    value: "master"
+  tags:
+    - install
+    - git
+
+- name: Set fast-forward merge only
+  git_config:
+    name: merge.ff
+    scope: global
+    value: only
+  tags:
+    - install
+    - git
+
+- name: Force clone using ssh
+  git_config:
+    name: url.git@github.com:.insteadOf
+    scope: global
+    value: "https://github.com/"
+  tags:
+    - install
+    - git

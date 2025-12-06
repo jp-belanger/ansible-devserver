@@ -1,0 +1,8 @@
+- name: Install system packages
+  become: true
+  pacman:
+    name:
+      - base-devel
+  tags:
+    - install
+    - base

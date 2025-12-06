@@ -1,0 +1,21 @@
+---
+- hosts: localhost
+  connection: local
+  pre_tasks:
+  - name: Full upgrade
+    pacman:
+      update_cache: true
+      upgrade: true
+    become: true
+  vars_files:
+    - vars/ssh.yml
+  tasks:
+    - import_tasks: tasks/base-setup.yml
+    - import_tasks: tasks/ssh-setup.yml
+    - import_tasks: tasks/git-setup.yml
+    - import_tasks: tasks/tools-setup.yml
+    - import_tasks: tasks/dotfiles-setup.yml
+    - import_tasks: tasks/zsh-setup.yml
+    - import_tasks: tasks/nvim-setup.yml
+    - import_tasks: tasks/rust-setup.yml
+    - import_tasks: tasks/python-setup.yml
