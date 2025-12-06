@@ -2,7 +2,7 @@
   git_config:
     name: user.email
     scope: global
-    value: "8102483+jp-belanger@users.noreply.github.com"
+    value: "{{ git_user_email }}"
   tags:
     - install
     - git
@@ -11,7 +11,7 @@
   git_config:
     name: user.name
     scope: global
-    value: "jp-belanger"
+    value: "{{ git_user_name }}"
   tags:
     - install
     - git

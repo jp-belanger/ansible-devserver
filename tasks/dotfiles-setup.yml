@@ -6,6 +6,7 @@
     - .zshrc
   tags:
     - install
+    - dotfiles
 
 - name: Install stow
   become: true
@@ -23,28 +24,19 @@
     update: true
     accept_hostkey: true
     version: master
+    key_file: "{{ dest_key }}"
   tags:
     - install
     - dotfiles
 
-- name: Unlinking previous dotfiles
-  command: "stow -D -t {{ user_home }} -d {{ dotfiles_dir }} {{ item }}"
+- name: Restow dotfiles
+  command: "stow -R -t {{ user_home }} -d {{ dotfiles_dir }} {{ item }}"
   loop:
     - zsh
     - tmux
     - nvim
     - ipython
-  tags:
-    - install
-    - dotfiles
-
-- name: Linking dotfiles
-  command: "stow -t {{ user_home }} -d {{ dotfiles_dir }} {{ item }}"
-  loop:
-    - zsh
-    - tmux
-    - nvim
-    - ipython
+  changed_when: false
   tags:
     - install
     - dotfiles

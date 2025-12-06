@@ -8,7 +8,9 @@
 
 - name: Change default shell to zsh
   become: true
-  shell: chsh -s "$(which zsh)" "{{ user_name }}"
+  user:
+    name: "{{ user_name }}"
+    shell: /usr/bin/zsh
   tags:
     - install
     - zsh
