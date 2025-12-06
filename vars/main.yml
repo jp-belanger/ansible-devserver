@@ -1,6 +1,6 @@
 ---
-user_home: "{{ ansible_env.HOME }}"
-user_name: "{{ ansible_env.USER }}"
+user_home: "{{ ansible_facts['env']['HOME'] }}"
+user_name: "{{ ansible_facts['env']['USER'] }}"
 ssh_dir: "{{ user_home }}/.ssh"
 dotfiles_dir: "{{ user_home }}/.dotfiles"
 
