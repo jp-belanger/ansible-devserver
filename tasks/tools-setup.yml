@@ -1,6 +1,6 @@
 - name: Setup dev tools
   become: true
-  pacman: 
+  pacman:
     name:
       - tmux
       - tldr
@@ -10,7 +10,6 @@
       - bat
       - btop
       - npm
-      - claude-code
   tags:
     - install
     - tools
