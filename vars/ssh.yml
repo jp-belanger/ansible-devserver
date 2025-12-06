@@ -1,2 +1,0 @@
-source_key: "./.ssh/ansible_key"
-dest_key: "{{ lookup('env', 'HOME') }}/.ssh/ansible_key"

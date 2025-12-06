@@ -1,0 +1,8 @@
+---
+user_home: "{{ ansible_env.HOME }}"
+user_name: "{{ ansible_env.USER }}"
+ssh_dir: "{{ user_home }}/.ssh"
+dotfiles_dir: "{{ user_home }}/.dotfiles"
+
+source_key: "./.ssh/ansible_key"
+dest_key: "{{ ssh_dir }}/ansible_key"

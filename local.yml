@@ -8,7 +8,7 @@
       upgrade: true
     become: true
   vars_files:
-    - vars/ssh.yml
+    - vars/main.yml
   tasks:
     - import_tasks: tasks/base-setup.yml
     - import_tasks: tasks/ssh-setup.yml
