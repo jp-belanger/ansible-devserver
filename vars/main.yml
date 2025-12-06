@@ -4,8 +4,8 @@ user_name: "{{ ansible_facts['env']['USER'] }}"
 ssh_dir: "{{ user_home }}/.ssh"
 dotfiles_dir: "{{ user_home }}/.dotfiles"
 
-source_key: "./.ssh/ansible_key"
-dest_key: "{{ ssh_dir }}/ansible_key"
+source_key: "./.ssh/ansible_devserver"
+dest_key: "{{ ssh_dir }}/ansible_devserver"
 
 git_user_email: "8102483+jp-belanger@users.noreply.github.com"
 git_user_name: "jp-belanger"
