@@ -10,6 +10,17 @@
       - bat
       - btop
       - npm
+      - wget
+      - curl
+      - tree
+      - rsync
+      - unzip
+      - zip
+      - man-db
+      - man-pages
+      - net-tools
+      - bind-tools
+      - pkgfile
   tags:
     - install
     - tools
