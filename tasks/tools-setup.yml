@@ -21,6 +21,7 @@
       - net-tools
       - bind-tools
       - pkgfile
+      - luarocks
   tags:
     - install
     - tools
