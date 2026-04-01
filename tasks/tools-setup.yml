@@ -22,6 +22,8 @@
       - bind-tools
       - pkgfile
       - luarocks
+      - docker
+      - docker-compose
   tags:
     - install
     - tools
