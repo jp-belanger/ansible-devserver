@@ -43,6 +43,15 @@
     - install
     - ssh
 
+- name: Add ansible-personal to authorized keys
+  authorized_key:
+    user: "{{ user_name }}"
+    state: present
+    key: "{{ extra_authorized_key }}"
+  tags:
+    - install
+    - ssh
+
 - name: Install ssh config
   copy:
     src: "./.ssh/config"
