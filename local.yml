@@ -14,6 +14,7 @@
     - import_tasks: tasks/ssh-setup.yml
     - import_tasks: tasks/git-setup.yml
     - import_tasks: tasks/tools-setup.yml
+    - import_tasks: tasks/tailscale-setup.yml
     - import_tasks: tasks/dotfiles-setup.yml
     - import_tasks: tasks/zsh-setup.yml
     - import_tasks: tasks/nvim-setup.yml
