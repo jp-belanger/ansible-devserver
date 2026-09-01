@@ -11,7 +11,9 @@
       - jq
       - bat
       - btop
+      - eza
       - npm
+      - pnpm
       - wget
       - curl
       - tree
@@ -19,13 +21,12 @@
       - unzip
       - zip
       - man-db
+      - less
       - man-pages
-      - net-tools
-      - bind-tools
-      - pkgfile
       - luarocks
       - docker
       - docker-compose
+      - fastfetch
   tags:
     - install
     - tools

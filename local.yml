@@ -7,6 +7,8 @@
       update_cache: true
       upgrade: true
     become: true
+    tags:
+      - install
   vars_files:
     - vars/main.yml
   tasks:
