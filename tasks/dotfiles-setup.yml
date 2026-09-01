@@ -18,13 +18,11 @@
 
 - name: Cloning dotfiles
   git:
-    repo: git@github.com:r3k4mn14r/dotfiles.git
+    repo: https://github.com/jp-belanger/dotfiles.git
     dest: "{{ dotfiles_dir }}"
     recursive: true
     update: true
-    accept_hostkey: true
     version: master
-    key_file: "{{ dest_key }}"
   tags:
     - install
     - dotfiles

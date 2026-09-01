@@ -7,6 +7,8 @@
       - ripgrep
       - fd
       - git
+      - github-cli
+      - jq
       - bat
       - btop
       - npm
