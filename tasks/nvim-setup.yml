@@ -1,16 +1,18 @@
 - name: Install neovim
   become: true
-  pacman:
+  community.general.pacman:
     name: neovim
   tags:
     - install
     - neovim
 
 - name: Create required nvim directory
-  file:
-    path: "{{ user_home }}/.local/share/nvim/site/autoload"
+  ansible.builtin.file:
+    path: "{{ dev_home }}/.local/share/nvim/site/autoload"
     state: directory
-    mode: 0755
+    mode: "0755"
+  become: true
+  become_user: "{{ dev_user }}"
   tags:
     - install
     - neovim

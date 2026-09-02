@@ -1,34 +1,28 @@
-- name: Remove system default dotfiles on install
-  file:
-    path: "{{ user_home }}/{{ item }}"
-    state: absent
-  loop:
-    - .zshrc
-  tags:
-    - install
-    - dotfiles
-
 - name: Install stow
   become: true
-  pacman: 
+  community.general.pacman:
     name: stow
   tags:
     - install
     - dotfiles
 
-- name: Cloning dotfiles
-  git:
+- name: Clone dotfiles
+  ansible.builtin.git:
     repo: https://github.com/jp-belanger/dotfiles.git
     dest: "{{ dotfiles_dir }}"
     recursive: true
     update: true
     version: master
+  become: true
+  become_user: "{{ dev_user }}"
   tags:
     - install
     - dotfiles
 
 - name: Restow dotfiles
-  command: "stow -R -t {{ user_home }} -d {{ dotfiles_dir }} {{ item }}"
+  ansible.builtin.command: "stow -R -t {{ dev_home }} -d {{ dotfiles_dir }} {{ item }}"
+  become: true
+  become_user: "{{ dev_user }}"
   loop:
     - zsh
     - tmux

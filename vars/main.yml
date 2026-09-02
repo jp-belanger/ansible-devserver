@@ -1,7 +1,8 @@
 ---
-user_home: "{{ ansible_facts['env']['HOME'] }}"
-user_name: "{{ ansible_facts['env']['USER'] }}"
-dotfiles_dir: "{{ user_home }}/.dotfiles"
+admin_user: "admin"
+dev_user: "dev"
+dev_home: "{{ ansible_facts.getent_passwd[dev_user][4] }}"
+dotfiles_dir: "{{ dev_home }}/.dotfiles"
 
 personal_authorized_key: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINH8bmHzwpSj4F9MPTnxswkM7HZ86PzYEeT53NhakzOq ansible_personal"
 

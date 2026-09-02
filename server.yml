@@ -1,0 +1,65 @@
+---
+- name: Configure development server
+  hosts: all
+  vars_files:
+    - vars/main.yml
+  pre_tasks:
+    - name: Validate provisioning accounts
+      ansible.builtin.assert:
+        that:
+          - admin_user != "root"
+          - dev_user != "root"
+          - admin_user != dev_user
+          - ansible_facts["user_id"] == admin_user
+        fail_msg: Run this playbook as the configured non-root administrator.
+      tags:
+        - always
+
+    - name: Fully upgrade the system
+      community.general.pacman:
+        update_cache: true
+        upgrade: true
+      become: true
+      tags:
+        - always
+
+    - name: Ensure development group exists
+      ansible.builtin.group:
+        name: "{{ dev_user }}"
+        state: present
+      become: true
+      tags:
+        - always
+
+    - name: Create unprivileged development account
+      ansible.builtin.user:
+        name: "{{ dev_user }}"
+        group: "{{ dev_user }}"
+        groups: ""
+        append: false
+        create_home: true
+        shell: /bin/bash
+        state: present
+      become: true
+      tags:
+        - always
+
+    - name: Look up the development user
+      ansible.builtin.getent:
+        database: passwd
+        key: "{{ dev_user }}"
+      tags:
+        - always
+
+  tasks:
+    - ansible.builtin.import_tasks: tasks/base-setup.yml
+    - ansible.builtin.import_tasks: tasks/ssh-setup.yml
+    - ansible.builtin.import_tasks: tasks/git-setup.yml
+    - ansible.builtin.import_tasks: tasks/tools-setup.yml
+    - ansible.builtin.import_tasks: tasks/tailscale-setup.yml
+    - ansible.builtin.import_tasks: tasks/dotfiles-setup.yml
+    - ansible.builtin.import_tasks: tasks/zsh-setup.yml
+    - ansible.builtin.import_tasks: tasks/nvim-setup.yml
+    - ansible.builtin.import_tasks: tasks/rust-setup.yml
+    - ansible.builtin.import_tasks: tasks/python-setup.yml
+    - ansible.builtin.import_tasks: tasks/typescript-setup.yml

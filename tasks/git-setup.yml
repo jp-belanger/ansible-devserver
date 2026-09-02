@@ -1,35 +1,43 @@
 - name: Git personal setup email
-  git_config:
+  community.general.git_config:
     name: user.email
     scope: global
     value: "{{ git_user_email }}"
+  become: true
+  become_user: "{{ dev_user }}"
   tags:
     - install
     - git
 
 - name: Git personal setup name
-  git_config:
+  community.general.git_config:
     name: user.name
     scope: global
     value: "{{ git_user_name }}"
+  become: true
+  become_user: "{{ dev_user }}"
   tags:
     - install
     - git
 
 - name: Set default branch to master
-  git_config:
+  community.general.git_config:
     name: init.defaultBranch
     scope: global
     value: "master"
+  become: true
+  become_user: "{{ dev_user }}"
   tags:
     - install
     - git
 
 - name: Set fast-forward merge only
-  git_config:
+  community.general.git_config:
     name: merge.ff
     scope: global
     value: only
+  become: true
+  become_user: "{{ dev_user }}"
   tags:
     - install
     - git

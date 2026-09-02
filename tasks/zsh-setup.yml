@@ -1,6 +1,6 @@
 - name: Install zsh
   become: true
-  pacman:
+  community.general.pacman:
     name: zsh
   tags:
     - install
@@ -8,8 +8,8 @@
 
 - name: Change default shell to zsh
   become: true
-  user:
-    name: "{{ user_name }}"
+  ansible.builtin.user:
+    name: "{{ dev_user }}"
     shell: /usr/bin/zsh
   tags:
     - install

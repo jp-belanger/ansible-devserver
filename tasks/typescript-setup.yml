@@ -1,0 +1,9 @@
+- name: Install TypeScript development runtime
+  become: true
+  community.general.pacman:
+    name:
+      - nodejs
+      - pnpm
+  tags:
+    - install
+    - typescript

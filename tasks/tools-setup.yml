@@ -1,19 +1,16 @@
 - name: Setup dev tools
   become: true
-  pacman:
+  community.general.pacman:
     name:
       - tmux
       - tldr
       - ripgrep
       - fd
-      - git
       - github-cli
       - jq
       - bat
       - btop
       - eza
-      - npm
-      - pnpm
       - wget
       - curl
       - tree

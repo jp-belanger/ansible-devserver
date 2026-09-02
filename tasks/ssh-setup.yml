@@ -1,8 +1,9 @@
 - name: Authorize personal SSH key
-  authorized_key:
-    user: "{{ user_name }}"
+  ansible.posix.authorized_key:
+    user: "{{ dev_user }}"
     state: present
     key: "{{ personal_authorized_key }}"
+  become: true
   tags:
     - install
     - ssh

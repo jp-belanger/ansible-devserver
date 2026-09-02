@@ -1,27 +1,33 @@
 - name: Install rustup
   become: true
-  pacman:
+  community.general.pacman:
     name: rustup
   tags:
     - install
     - rust
 
 - name: Install rust stable version
-  command: rustup toolchain install stable
+  ansible.builtin.command: rustup toolchain install stable
+  become: true
+  become_user: "{{ dev_user }}"
   changed_when: false
   tags:
     - install
     - rust
 
 - name: Install rust nightly version
-  command: rustup toolchain install nightly
+  ansible.builtin.command: rustup toolchain install nightly
+  become: true
+  become_user: "{{ dev_user }}"
   changed_when: false
   tags:
     - install
     - rust
 
 - name: Setup default rust version to stable
-  command: rustup default stable
+  ansible.builtin.command: rustup default stable
+  become: true
+  become_user: "{{ dev_user }}"
   changed_when: false
   tags:
     - install

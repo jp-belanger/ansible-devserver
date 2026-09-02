@@ -1,6 +1,6 @@
 - name: Install tailscale
   become: true
-  pacman:
+  community.general.pacman:
     name:
       - tailscale
   tags:
@@ -9,7 +9,7 @@
 
 - name: Enable and start tailscaled
   become: true
-  systemd:
+  ansible.builtin.systemd:
     name: tailscaled
     enabled: true
     state: started
