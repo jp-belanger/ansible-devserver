@@ -28,6 +28,7 @@
     - tmux
     - nvim
     - ipython
+    - pi
   changed_when: false
   tags:
     - install
