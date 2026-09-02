@@ -3,6 +3,7 @@
   community.general.pacman:
     name:
       - nodejs
+      - npm
       - pnpm
   tags:
     - install
