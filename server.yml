@@ -38,7 +38,6 @@
         groups: ""
         append: false
         create_home: true
-        shell: /bin/bash
         state: present
       become: true
       tags:
