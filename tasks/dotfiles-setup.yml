@@ -20,7 +20,7 @@
     - dotfiles
 
 - name: Restow dotfiles
-  ansible.builtin.command: "stow -R -t {{ dev_home }} -d {{ dotfiles_dir }} {{ item }}"
+  ansible.builtin.command: "stow --no-folding -R -t {{ dev_home }} -d {{ dotfiles_dir }} {{ item }}"
   become: true
   become_user: "{{ dev_user }}"
   loop:
